@@ -1,31 +1,32 @@
 <html>
   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- Load the latest version of TensorFlow.js -->
     <script src="https://unpkg.com/@tensorflow/tfjs"></script>
     <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
     <script src="https://unpkg.com/@tensorflow-models/knn-classifier"></script>
     <style>
-div {
-  border: 1px solid black;
-  margin: 5px;
-  background-color: lightblue;
-  padding: 20px;
-}
-</style>
+	div {
+		border: 1px solid black;
+		margin: 5px;
+		background-color: lightblue;
+		padding: 20px;
+	}
+	</style>
   </head>
+  
   <body>
+  <audio id="audio" src="" hidden ></audio>
+
     <div id="console"></div>
-    <!-- Add an image that we will use to test -->
-    <!--<img id="img" crossOrigin src="https://i.imgur.com/JlUvsxa.jpg" width=227 height=227/>-->
     <div >
     <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
     <button id="class-a">تحية</button>
-<button id="class-b">كيف الحال</button>
-<button id="class-c">إلى اللقاء</button>
-<button id="class-d">شكرا</button>
-<button id="class-f">من فضلك</button>
-</div>
+	<button id="class-b">كيف الحال</button>
+	<button id="class-c">إلى اللقاء</button>
+	<button id="class-d">شكرا</button>
+	<button id="class-f">من فضلك</button>
+	</div>
     <!-- Load index.js after the content of the page -->
     <script src="index.js"></script>
   </body>

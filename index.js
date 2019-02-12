@@ -1,6 +1,11 @@
 const classifier = knnClassifier.create();
+
+//this.startWebcam();
 const webcamElement = document.getElementById('webcam');
 let net;
+var text;
+
+
 async function app() {
   console.log('Loading mobilenet..');
 
@@ -66,13 +71,24 @@ async function app() {
       const result = await classifier.predictClass(activation);
 
       const classes = ['تحية', 'كيف الحال', 'إلى اللقاء','شكرا', 'من فضلك'];
+	  
       document.getElementById('console').innerText = `
         prediction: ${classes[result.classIndex]}\n
-        probability: ${result.confidences[result.classIndex]}
-      `;
+        probability: ${result.confidences[result.classIndex]}`;
+		
+		 text =`${classes[result.classIndex]}`;
+		
+		
     }
-
-    await tf.nextFrame();
+	await tf.nextFrame();
+	var read = 'http://translate.google.com/translate_tts?tl=ar&q=' + text +'&client=tw-ob'
+		console.log( text);
+		var speech = document.getElementById('audio');
+		speech.setAttribute("src",read);
+		//speech.currentTime=0;
+		speech.play();
+		
+    
   }
 }
 app();
